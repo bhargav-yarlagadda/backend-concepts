@@ -1,59 +1,59 @@
 import { ApolloServer } from "@apollo/server";
-import {startStandaloneServer} from "@apollo/server/standalone"; 
+import { startStandaloneServer } from "@apollo/server/standalone";
 import { typeDefs } from "./schema.js";
 import _db from "./_db.js";
 
 
 
 const resolvers = {
-    Query:{
-        games(){
-            return _db.games
+    Query: {
+        games() {
+            return _db.games;
         },
-        reviews(){
-            return _db.reviews
+        game(_, args) {
+            return _db.games.find(game => game.id === args.id);
         },
-        authors(){
-            return _db.authors
+        reviews() {
+            return _db.reviews;
         },
-        reviews(_, args){
-            return _db.reviews.find(review => review.id === args.id)
-        } ,
-        games(_, args){
-            return _db.games.find(game => game.id === args.id)
+        review(_, args) {
+            return _db.reviews.find(review => review.id === args.id);
         },
-        authors(_, args){
-            return _db.authors.find(author => author.id === args.id)
+        authors() {
+            return _db.authors;
+        },
+        author(_, args) {
+            return _db.authors.find(author => author.id === args.id);
         }
     },
-    Game:{
-        reviews(parent){
-            return _db.reviews.filter(review => review.game_id === parent.id)
+    Game: {
+        reviews(parent) {
+            return _db.reviews.filter(review => review.game_id === parent.id);
         }
     },
-    Author:{
-        reviews(parent){
-            return _db.reviews.filter(r => r.author_id === parent.id)
+    Author: {
+        reviews(parent) {
+            return _db.reviews.filter(r => r.author_id === parent.id);
         }
     },
-    Review:{
-        game(parent){
-            return _db.games.find(game => game.id === parent.game_id)
+    Review: {
+        game(parent) {
+            return _db.games.find(game => game.id === parent.game_id);
         },
-        author(parent){
-            return _db.authors.find(author => author.id === parent.author_id)
+        author(parent) {
+            return _db.authors.find(author => author.id === parent.author_id);
         }
     }
-}
+};
 
 
 
 const server = new ApolloServer({
-  typeDefs:typeDefs, //defining how the graphQL schema looks like
-   resolvers: resolvers  // resolvers are functions that resolve the data for the fields in the schema
+    typeDefs: typeDefs, //defining how the graphQL schema looks like
+    resolvers: resolvers  // resolvers are functions that resolve the data for the fields in the schema
 
 })
-const {url} = await startStandaloneServer(server, {
-  listen: { port: 4000 },
+const { url } = await startStandaloneServer(server, {
+    listen: { port: 4000 },
 })
 console.log("Server ready at: " + url);
