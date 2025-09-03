@@ -61,6 +61,48 @@ export default function Home() {
             </span>
           </Link>
 
+          <Link
+            href="/login-oauth"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl 
+                 bg-white text-gray-800 shadow-md border border-gray-200 
+                 hover:shadow-lg hover:bg-gray-50 transition-all duration-200"
+          >
+            <svg
+              className="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 48 48"
+            >
+              <path
+                fill="#FFC107"
+                d="M43.6 20.5H42V20H24v8h11.3C33.8 32.5 29.4 36 24 36c-6.6 
+          0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 
+          3l5.7-5.7C33.6 6.5 29.1 4 24 4 12.9 4 4 
+          12.9 4 24s8.9 20 20 20 20-8.9 
+          20-20c0-1.3-.1-2.3-.4-3.5z"
+              />
+              <path
+                fill="#FF3D00"
+                d="M6.3 14.7l6.6 4.8C14.5 16.1 18.9 14 24 
+          14c3 0 5.7 1.1 7.8 3l5.7-5.7C33.6 
+          6.5 29.1 4 24 4 16.1 4 9.2 8.5 
+          6.3 14.7z"
+              />
+              <path
+                fill="#4CAF50"
+                d="M24 44c5.3 0 10-1.7 13.6-4.7l-6.3-5.2C29.3 
+          35.7 26.8 36.6 24 36c-5.4 0-9.8-3.5-11.3-8.3l-6.6 
+          5.1C9.2 39.5 16.1 44 24 44z"
+              />
+              <path
+                fill="#1976D2"
+                d="M43.6 20.5H42V20H24v8h11.3c-1.3 
+          3.8-4.9 6.5-9.3 6.5-5.4 0-9.8-3.5-11.3-8.3l-6.6 
+          5.1C9.2 39.5 16.1 44 24 44c11.1 0 
+          20-8.9 20-20 0-1.3-.1-2.3-.4-3.5z"
+              />
+            </svg>
+            <span className="font-medium">Login with Google</span>
+          </Link>
           {/* Placeholder for future auth methods */}
           <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg bg-white">
             <p className="text-center text-gray-500">

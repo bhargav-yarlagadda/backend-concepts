@@ -1,9 +1,5 @@
 "use client";
-import { useState }      // Store the JWT token
-      localStorage.setItem('token', data.token);
-      
-      // Login successful
-      router.push('/protected'); // Redirect to protected pagerom "react";
+import { useState }     from "react"
 import { useRouter } from "next/navigation";
 
 export default function LoginJWT() {
